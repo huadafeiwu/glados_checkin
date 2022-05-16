@@ -36,4 +36,6 @@ jobs:
               && chromedriver --version
         - name: Checkin
           run: |
-            python3 checkin.py 
+            python3 checkin.py
+          env: 
+            COOKIE: ${{ secrets.COOKIE }}
