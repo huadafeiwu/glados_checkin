@@ -23,7 +23,7 @@ cookies_list = json.loads(COOKIE)
 
 for cookie in cookies_list:
    print(cookie)
-   driver.add_cookie(cookie)
+   browser.add_cookie(cookie)
 
 browser.refresh()
 
