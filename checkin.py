@@ -22,7 +22,7 @@ with open('cookies.txt','r') as f:
 
     for cookie in cookies_list:
         print(cookie)
-        driver.add_cookie(cookie)
+        browser.add_cookie(cookie)
 
 browser.refresh()
 
