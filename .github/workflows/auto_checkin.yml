@@ -26,7 +26,7 @@ jobs:
         - name: Install ChromeDriver
           run: |
             CHROME_VERSION=100.0.4896.60 \
-              && CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE_100.0.4896}) \
+              && CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE_100.0.4896) \
               && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
               && cd /tmp \
               && unzip chromedriver_linux64.zip \
