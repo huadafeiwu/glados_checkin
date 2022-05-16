@@ -1,25 +1,32 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+
 import time
 import json
 import os
 
 cookies = os.environ["COOKIE"]
 
-driver = webdriver.Chrome()
+# 模拟浏览器打开网站
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+browser = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)
 
-driver.get('https://glados.rocks/login')
-driver.maximize_window()
+browser.get('https://glados.rocks/login')
+browser.maximize_window()
 
 cookies_list = json.load(cookies)
 
 for cookie in cookies_list:
-    driver.add_cookie(cookie)
+    browser.add_cookie(cookie)
 
-driver.refresh()
+browser.refresh()
 
-driver.get('https://glados.rocks/console/checkin')
-driver.find_element(By.XPATH, "//*[@class='ui positive button']").click()
+browser.get('https://glados.rocks/console/checkin')
+browser.find_element(By.XPATH, "//*[@class='ui positive button']").click()
 time.sleep(2)
 
-driver.quit()
+browser.quit()
