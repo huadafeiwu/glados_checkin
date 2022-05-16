@@ -6,8 +6,6 @@ import time
 import json
 import os
 
-cookies = os.environ["COOKIE"]
-
 # 模拟浏览器打开网站
 chrome_options = Options()
 chrome_options.add_argument('--headless')
@@ -18,10 +16,13 @@ browser = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_option
 browser.get('https://glados.rocks/login')
 browser.maximize_window()
 
-cookies_list = json.load(cookies)
+with open('D:\Documents\Scripts\glados\cookies.txt','r') as f:
+    # read cookies 
+    cookies_list = json.load(f)
 
-for cookie in cookies_list:
-    browser.add_cookie(cookie)
+    for cookie in cookies_list:
+        print(cookie)
+        driver.add_cookie(cookie)
 
 browser.refresh()
 
