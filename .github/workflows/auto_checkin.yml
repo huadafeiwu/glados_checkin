@@ -10,7 +10,7 @@ on:
     - cron:  0 2 * * *
 
 jobs:
-  bot:
+  checkin:
     runs-on: ubuntu-latest
     steps:
         - name: 'Checkout codes'
@@ -34,8 +34,6 @@ jobs:
               && sudo mv chromedriver /usr/local/bin/chromedriver \
               && sudo chmod +x /usr/local/bin/chromedriver \
               && chromedriver --version
-        - name: 'Get Date'
-          run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shenzhen' date '+%Y-%m-%d %T')"
         - name: Checkin
           run: |
             python3 checkin.py 
