@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import time
 import json
 import os
@@ -7,6 +8,12 @@ import os
 cookies = os.environ["COOKIE"]
 
 driver = webdriver.Chrome()
+
+chrome_options = Options()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--headless')
+browser = webdriver.Chrome(chrome_options=chrome_options)
 
 driver.get('https://glados.rocks/login')
 driver.maximize_window()
