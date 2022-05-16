@@ -16,7 +16,7 @@ browser = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_option
 browser.get('https://glados.rocks/login')
 browser.maximize_window()
 
-with open('D:\Documents\Scripts\glados\cookies.txt','r') as f:
+with open('cookies.txt','r') as f:
     # read cookies 
     cookies_list = json.load(f)
 
