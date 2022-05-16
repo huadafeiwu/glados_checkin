@@ -18,9 +18,8 @@ browser = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_option
 browser.get('https://glados.rocks/login')
 browser.maximize_window()
 
-for cookie in COOKIE:
-    print(cookie)
-    browser.add_cookie(cookie)
+print(COOKIE)
+browser.add_cookie(COOKIE)
 
 browser.refresh()
 
